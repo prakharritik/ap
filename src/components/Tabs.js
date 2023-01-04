@@ -1,16 +1,26 @@
 import React from "react";
 import "./tabs.css";
 
-const Tabs = () => {
+const Tabs = ({ activeClass, setActiveClass }) => {
+  console.log(activeClass);
   return (
     <div class="tab">
-      <button class="tablinks" onclick="openCity(event, 'London')">
+      <button
+        class={`tablinks ${activeClass === "Resources" ? "active" : null}`}
+        onClick={(e) => setActiveClass("Resources")}
+      >
         Resources
       </button>
-      <button class="tablinks" onclick="openCity(event, 'Paris')">
+      <button
+        class={`tablinks ${activeClass === "Requests" ? "active" : null}`}
+        onClick={(e) => setActiveClass("Requests")}
+      >
         Requests
       </button>
-      <button class="tablinks" onclick="openCity(event, 'Tokyo')">
+      <button
+        class={`tablinks ${activeClass === "Users" ? "active" : null}`}
+        onClick={(e) => setActiveClass("Users")}
+      >
         Users
       </button>
     </div>

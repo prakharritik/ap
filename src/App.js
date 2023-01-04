@@ -10,10 +10,16 @@ import Tabs from "./components/Tabs";
 function App() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [activeClass, setActiveClass] = useState("Resources");
   const [search, setSearch] = useState("");
-  const filteredItems = items.filter((item) =>
+  let filteredItems = items.filter((item) =>
     item.title.toLowerCase().includes(search.toLowerCase())
   );
+  if (activeClass !== "Resources") {
+    filteredItems = filteredItems.filter(
+      (item) => item.tag + "s" === activeClass.toLowerCase()
+    );
+  }
   useEffect(() => {
     async function getData() {
       const res = await axios.get(
@@ -29,7 +35,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Tabs />
+      <Tabs activeClass={activeClass} setActiveClass={setActiveClass} />
       <SearchBar search={search} setSearch={setSearch} />
       {loading ? <h2>Loading...</h2> : <Items items={filteredItems} />}
     </div>
