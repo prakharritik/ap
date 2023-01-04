@@ -1,0 +1,49 @@
+.cardHead {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.cardImg img {
+  height: 44px;
+  width: 44px;
+  border: 2px solid #d7dfe9;
+  border-radius: 4px;
+  margin-right: 16px;
+  padding: 5px;
+}
+
+.card-link {
+  font-family: "HK Grotesk";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+
+  color: #0b69ff;
+  margin-top: 20px;
+}
+.card-title {
+  font-family: "HK Grotesk";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 2px;
+}
+.card-subtitle {
+  font-family: "HK Grotesk";
+  font-style: normal;
+  color: #7e858e;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}
+.card-desc {
+  font-family: "HK Grotesk";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: 20px;
+  line-height: 24px;
+
+  color: #7e858e;
+}

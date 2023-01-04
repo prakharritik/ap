@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import axios from "axios";
+import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import Items from "./components/Items";
+import Navbar from "./components/Navbar";
+import SearchBar from "./components/SearchBar";
+import Tabs from "./components/Tabs";
 
 function App() {
+  const [items, setItems] = useState(null);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    return async () => {
+      const res = await axios.get(
+        "https://media-content.ccbp.in/website/react-assignment/resources.json"
+      );
+      setItems(res.data);
+    };
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <Tabs />
+      <SearchBar />
+      <Items />
     </div>
   );
 }
