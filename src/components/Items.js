@@ -2,18 +2,12 @@ import React from "react";
 import Card from "./Card";
 import "./items.css";
 
-const Items = () => {
+const Items = ({ items }) => {
   return (
     <div className="card-container">
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {items.map((item) => (
+        <Card item={item} key={item.id} />
+      ))}
     </div>
   );
 };

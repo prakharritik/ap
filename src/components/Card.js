@@ -1,26 +1,24 @@
 import React from "react";
 import "./card.css";
 
-const Card = () => {
+const Card = ({
+  item: { title, icon_url, link, description, category, tag, id },
+}) => {
   return (
     <div className="card">
       <div className="cardHead">
         <div className="cardImg">
-          <img src="http://loremflickr.com/640/480" />
+          <img src={icon_url} />
         </div>
         <div>
-          <h1 className="card-title">Dropbox inc</h1>
-          <h2 className="card-subtitle">Cloud services</h2>
+          <h1 className="card-title">{title}</h1>
+          <h2 className="card-subtitle">{category}</h2>
         </div>
       </div>
-      <a href="https://gaseous-pod.net" className="card-link">
-        https://gaseous-pod.net
+      <a href={link} className="card-link">
+        {link}
       </a>
-      <div className="card-desc">
-        Cumulus inc chopper read, north of the river melb rooftop cinema four
-        seasons in one day victory vs heart, victoria street dodgies graffiti
-        kylie minogue.
-      </div>
+      <div className="card-desc">{description}</div>
     </div>
   );
 };
